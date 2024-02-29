@@ -75,6 +75,41 @@ function filterContent() {
     }
 }
 
+function scrollImg(direction) {
+    let img = ["/slider/london.jpg", "/slider/spb.jpg", "/slider/ny.jpg"];
+    let numImg = 0;
+    let imgTeg = document.getElementById('imgScroll');
+    for (let i = 0; i < img.length; i++) {
+        if (imgTeg.src.includes("/slider/london.jpg")) {
+            if (direction == true) {
+                numImg = 1;
+            }
+            else {
+                numImg = 2;
+            }
+           
+        }
+        else if (imgTeg.src.includes("/slider/spb.jpg")) {
+            if (direction == true) {
+                numImg = 2;
+            }
+            else {
+                numImg = 0;
+            }
+           
+        }
+        else if (imgTeg.src.includes("/slider/ny.jpg")) {
+            if (direction == true) {
+                numImg = 0;
+            }
+            else {
+                numImg = 1;
+            }
+            
+        }
+    }
+    imgTeg.src = img[numIng];
+}
 ///*
 //* Всплывающее окно будет показано по таймауту
 //* 

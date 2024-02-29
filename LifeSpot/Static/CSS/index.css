@@ -138,6 +138,12 @@ input {
     position: absolute;
     top: 200px;
 }
-.bordered{
-    text-align:center;
+#buttonImg1:hover {
+    background-color: rgb(128,128,128,0.8);
+}
+#buttonImg2:hover {
+    background-color: rgb(128,128,128,0.8);
+}
+.bordered {
+    text-align: center;
 }
