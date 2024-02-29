@@ -1,28 +1,28 @@
 ﻿/* Комбинированный селектор - применяется ко всем элементам */
-header,footer,aside,body,.navbar,.video-container{
+header, footer, aside, body, .navbar, .video-container {
     font-family: "Helvetica 65 Medium", sans-serif;
 }
 
-header,footer,body,.video-container{
+header, footer, body, .video-container {
     background-color: linen;
 }
 
 /* Компоненты iframe со встроенным видео */
-.video-container{
+.video-container {
     display: inline-block;
     margin-top: 0.5em;
     padding-left: 1%;
     padding-top: 1%;
 }
 
-.review-container,.review-button{
+.review-container, .review-button {
     display: inline-block;
     margin-top: 0.5em;
     padding-left: 1%;
     padding-top: 1%;
 }
 
-.review-text{
+.review-text {
     display: block;
     margin-top: 0.5em;
     padding-left: 1%;
@@ -31,25 +31,26 @@ header,footer,body,.video-container{
 
 
 /* Стили панели навигации */
-.navbar p{
+.navbar p {
     color: darkgray;
     padding-left: 15%;
 }
 
-/* Стили панели навигации при наведении мышью */
-.navbar p:hover{
-    color: aliceblue;
-}
+    /* Стили панели навигации при наведении мышью */
+    .navbar p:hover {
+        color: aliceblue;
+    }
 
 /* Глобальные стили для хедеров на всём сайте */
-header{
+header {
     color: black;
     padding-left: 1%;
     padding-top: 1.2%;
+    text-align:center;
 }
 /* Стиль хедера для главной страницы имеет приоритет, 
 так как используется селектор по идентификатору */
-#header-index{
+#header-index {
     color: #44453f;
 }
 
@@ -65,8 +66,8 @@ footer {
     margin-top: auto;
 }
 
-aside{
-    min-height: 100vh; /* Высота в полный размер. Этот параметр можно убрать, если вы хотите выставлять высоту автоматически */
+aside {
+    min-height: 165vh; /* Высота в полный размер. Этот параметр можно убрать, если вы хотите выставлять высоту автоматически */
     width: 10%;
     min-width: 200px;
     z-index: 1;
@@ -79,7 +80,7 @@ aside{
     font-size: large;
 }
 
-body{
+body {
     padding-left: 250px;
     height: 100%;
     min-height: 100vh;
@@ -87,7 +88,7 @@ body{
     flex-direction: column;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
@@ -97,7 +98,46 @@ input {
     outline: none;
 }
 
-input:focus {
-    border: 2px solid dimgrey;
+    input:focus {
+        border: 2px solid dimgrey;
+    }
+
+#scrollImg {
+    position: relative;
+    left: 15vw;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    width:53vw;
 }
 
+    #scrollImg img {
+        border: 1%;
+        border-style: solid;
+        border-color: grey;
+        padding: 0;
+    }
+
+#buttonImg1 {
+    padding:0;  
+    border: 0;
+    background-color: rgb(128,128,128,0.3);
+    height: 40px;
+    width: 15px;
+    z-index: 2;
+    position: absolute;
+    left: -15px;
+    top: 200px;
+}
+#buttonImg2 {
+    padding: 0 ;
+    border: 0 ;
+    background-color: rgb(128,128,128,0.3);
+    height: 40px;
+    width:15px;
+    z-index: 2;
+    position: absolute;
+    top: 200px;
+}
+.bordered{
+    text-align:center;
+}

@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
+using System.Diagnostics;
 using System.IO;
+using System.Reflection;
 using System.Text;
 
 namespace LifeSpot
@@ -44,15 +46,15 @@ namespace LifeSpot
 
             builder.MapGet("/", async context =>
             {
-            var viewPath = Path.Combine(Directory.GetCurrentDirectory(), "Views", "index.html");
-            var viewText = await File.ReadAllTextAsync(viewPath);
+                var viewPath = Path.Combine(Directory.GetCurrentDirectory(), "Views", "index.html");
+                var viewText = await File.ReadAllTextAsync(viewPath);
 
                 // Загружаем шаблон страницы, вставляя в него элементы
                 var html = new StringBuilder(await File.ReadAllTextAsync(viewPath))
                     .Replace("<!--SIDEBAR-->", sideBarHtml)
                     .Replace("<!--FOOTER-->", footerHtml)
                     .Replace("<!--ScrollImg-->", scrollImageHtml);
-                
+
 
                 await context.Response.WriteAsync(html.ToString());
             });
@@ -80,6 +82,19 @@ namespace LifeSpot
 
                 await context.Response.WriteAsync(html.ToString());
             });
+        }
+        public static void MapImg(this IEndpointRouteBuilder builder)
+        {
+            var imgFiles = new[] { "london.jpg", "ny.jpg", "spb.jpg" };
+
+            foreach (var fileName in imgFiles)
+            {
+                builder.MapGet($"/slider/{fileName}", async context =>
+                {
+                    var imgPath = Path.Combine(Directory.GetCurrentDirectory(), "slider", fileName);
+                    await context.Response.SendFileAsync(imgPath);
+                });
+            }
         }
     }
 }
