@@ -79,36 +79,26 @@ function scrollImg(direction) {
     let img = ["/slider/london.jpg", "/slider/spb.jpg", "/slider/ny.jpg"];
     let numImg = 0;
     let imgTeg = document.getElementById('imgScroll');
+    let str = imgTeg.src.slice(24, imgTeg.src.length);
     for (let i = 0; i < img.length; i++) {
-        if (imgTeg.src.includes("/slider/london.jpg")) {
-            if (direction == true) {
-                numImg = 1;
+        if (img[i].includes(str)){
+            numImg = i;
+            if (direction) {
+                numImg++;
             }
             else {
-                numImg = 2;
-            }
-           
-        }
-        else if (imgTeg.src.includes("/slider/spb.jpg")) {
-            if (direction == true) {
-                numImg = 2;
-            }
-            else {
-                numImg = 0;
-            }
-           
-        }
-        else if (imgTeg.src.includes("/slider/ny.jpg")) {
-            if (direction == true) {
-                numImg = 0;
-            }
-            else {
-                numImg = 1;
+                numImg--;
             }
             
         }
     }
-    imgTeg.src = img[numIng];
+    if (numImg > img.length - 1) {
+        numImg = 0;
+    }
+    if (numImg < 0) {
+        numImg = img.length - 1;
+    }
+    imgTeg.src = img[numImg];
 }
 ///*
 //* Всплывающее окно будет показано по таймауту

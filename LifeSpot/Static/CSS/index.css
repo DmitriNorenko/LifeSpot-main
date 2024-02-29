@@ -46,7 +46,7 @@ header {
     color: black;
     padding-left: 1%;
     padding-top: 1.2%;
-    text-align:center;
+    text-align: center;
 }
 /* Стиль хедера для главной страницы имеет приоритет, 
 так как используется селектор по идентификатору */
@@ -107,7 +107,7 @@ input {
     left: 15vw;
     margin-top: 5vh;
     margin-bottom: 5vh;
-    width:53vw;
+    width: 53vw;
 }
 
     #scrollImg img {
@@ -118,7 +118,7 @@ input {
     }
 
 #buttonImg1 {
-    padding:0;  
+    padding: 0;
     border: 0;
     background-color: rgb(128,128,128,0.3);
     height: 40px;
@@ -128,22 +128,26 @@ input {
     left: -15px;
     top: 200px;
 }
+
 #buttonImg2 {
-    padding: 0 ;
-    border: 0 ;
+    padding: 0;
+    border: 0;
     background-color: rgb(128,128,128,0.3);
     height: 40px;
-    width:15px;
+    width: 15px;
     z-index: 2;
     position: absolute;
     top: 200px;
 }
+
 #buttonImg1:hover {
     background-color: rgb(128,128,128,0.8);
 }
+
 #buttonImg2:hover {
     background-color: rgb(128,128,128,0.8);
 }
+
 .bordered {
     text-align: center;
 }
