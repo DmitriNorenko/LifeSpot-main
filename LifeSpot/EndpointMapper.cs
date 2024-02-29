@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Routing;
 using System.IO;
 using System.Text;
 
-namespace LifeSpot.Views
+namespace LifeSpot
 {
     public static class EndpointMapper
     {
@@ -40,16 +40,19 @@ namespace LifeSpot.Views
         {
             string footerHtml = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), "Views", "Shared", "footer.html"));
             string sideBarHtml = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), "Views", "Shared", "sidebar.html"));
+            string scrollImageHtml = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), "Views", "Shared", "scrollImage.html"));
 
             builder.MapGet("/", async context =>
             {
-                var viewPath = Path.Combine(Directory.GetCurrentDirectory(), "Views", "index.html");
-                var viewText = await File.ReadAllTextAsync(viewPath);
+            var viewPath = Path.Combine(Directory.GetCurrentDirectory(), "Views", "index.html");
+            var viewText = await File.ReadAllTextAsync(viewPath);
 
                 // Загружаем шаблон страницы, вставляя в него элементы
                 var html = new StringBuilder(await File.ReadAllTextAsync(viewPath))
                     .Replace("<!--SIDEBAR-->", sideBarHtml)
-                    .Replace("<!--FOOTER-->", footerHtml);
+                    .Replace("<!--FOOTER-->", footerHtml)
+                    .Replace("<!--ScrollImg-->", scrollImageHtml);
+                
 
                 await context.Response.WriteAsync(html.ToString());
             });
