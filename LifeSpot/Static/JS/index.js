@@ -100,6 +100,7 @@ function scrollImg(direction) {
     }
     imgTeg.src = arrayImage[numImg];
 }
+
 ///*
 //* Всплывающее окно будет показано по таймауту
 //* 
