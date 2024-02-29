@@ -76,12 +76,12 @@ function filterContent() {
 }
 
 function scrollImg(direction) {
-    let img = ["/slider/london.jpg", "/slider/spb.jpg", "/slider/ny.jpg"];
+    let arrayImage = ["/slider/london.jpg", "/slider/spb.jpg", "/slider/ny.jpg"];
     let numImg = 0;
     let imgTeg = document.getElementById('imgScroll');
-    let str = imgTeg.src.slice(24, imgTeg.src.length);
-    for (let i = 0; i < img.length; i++) {
-        if (img[i].includes(str)){
+    let strSrc = imgTeg.src.slice(24, imgTeg.src.length);
+    for (let i = 0; i < arrayImage.length; i++) {
+        if (arrayImage[i].includes(strSrc)){
             numImg = i;
             if (direction) {
                 numImg++;
@@ -92,13 +92,13 @@ function scrollImg(direction) {
             
         }
     }
-    if (numImg > img.length - 1) {
+    if (numImg > arrayImage.length - 1) {
         numImg = 0;
     }
     if (numImg < 0) {
-        numImg = img.length - 1;
+        numImg = arrayImage.length - 1;
     }
-    imgTeg.src = img[numImg];
+    imgTeg.src = arrayImage[numImg];
 }
 ///*
 //* Всплывающее окно будет показано по таймауту
